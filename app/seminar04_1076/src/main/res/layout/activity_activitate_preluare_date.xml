@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitate_preluare_date">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adaugare Carte Noua"
+        />
+
+    <EditText
+        android:id="@+id/ET_titlu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/titlul_cartii"
+        />
+
+    <EditText
+        android:id="@+id/ET_autor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/autorul_cartii"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="An aparitie:" />
+    <Spinner
+        android:id="@+id/SP_an"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/lista_ani" />
+
+    <EditText
+        android:id="@+id/ET_pret"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pretul_cartii"
+        />
+
+    <CheckBox
+        android:id="@+id/CB_disponibila"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/este_disponibila" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="culegereDate"
+        android:text="@string/apasa" />
+
+</LinearLayout>
