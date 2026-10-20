@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Seminar04_10762</string>
+
+    <string-array name="lista_ani">
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+    </string-array>
+    <string name="titlul_cartii">Titlul cartii</string>
+    <string name="autorul_cartii">Autorul cartii</string>
+    <string name="pretul_cartii">Pretul cartii</string>
+    <string name="este_disponibila">Este disponibila</string>
+    <string name="salveaza">Salveaza</string>
+    <string name="nicio_carte_adaugata_inca">Nicio carte adaugata inca</string>
+</resources>
