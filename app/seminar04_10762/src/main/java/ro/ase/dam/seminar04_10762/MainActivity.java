@@ -16,10 +16,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQ_ADAUGA = 37;
+    private static final int REQ_LISTA = 38;
+
     private TextView tvRezultat;
+    private ArrayList<Carte> listaCarti = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +50,21 @@ public class MainActivity extends AppCompatActivity {
                     b.getFloat("pret", 0f),
                     b.getBoolean("disponibila", false)
             );
-            tvRezultat.setText(carte.toString());
+            listaCarti.add(carte);
+            //tvRezultat.setText(carte.toString()); aceasta era inainte de array list
             Toast.makeText(this, "Carte adaugata: " + carte.getTitlu(), Toast.LENGTH_SHORT).show();
         }
+
+        if(requestCode == REQ_LISTA) {
+            listaCarti = (ArrayList<Carte>) data.getSerializableExtra("lista");
+        }
+
+        tvRezultat.setText("Numar de carti in lista: " + listaCarti.size());
+    }
+
+    public void deschideLista(View view) {
+        Intent intent = new Intent(getApplicationContext(), ListaCarti.class);
+        intent.putExtra("lista",listaCarti);
+        startActivityForResult(intent, REQ_LISTA);
     }
 }

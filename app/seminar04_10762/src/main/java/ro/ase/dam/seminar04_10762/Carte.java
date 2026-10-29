@@ -1,6 +1,8 @@
 package ro.ase.dam.seminar04_10762;
 
-public class Carte {
+import java.io.Serializable;
+
+public class Carte implements Serializable {
     private char initiala = 'C';
     private String titlu;
     private String autor;
@@ -38,5 +40,11 @@ public class Carte {
 
     public boolean isEsteDisponibila() {
         return esteDisponibila;
+    }
+
+    @Override
+    public String toString() {
+        return titlu + " - " + autor + " (" + anAparitie + "), "
+                + pret + " lei, disponibila: " + (esteDisponibila ? "da" : "nu");
     }
 }

@@ -14,10 +14,15 @@
         android:onClick="deschideAdaugare"
         android:text="Adauga carte" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="deschideLista"
+        android:text="@string/vezi_lista_de_carti" />
+
     <TextView
         android:id="@+id/TV_rezultat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/nicio_carte_adaugata_inca" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
