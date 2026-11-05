@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    //private static final int REQ_MODIFICA = 209;
     private static final int REQ_ADAUGA = 37;
     private static final int REQ_LISTA = 38;
 
@@ -41,30 +42,34 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQ_ADAUGA && resultCode == RESULT_OK && data != null) {
-            Bundle b = data.getExtras();
-            Carte carte = new Carte(
-                    b.getString("titlu"),
-                    b.getString("autor"),
-                    b.getInt("an", 0),
-                    b.getFloat("pret", 0f),
-                    b.getBoolean("disponibila", false)
-            );
-            listaCarti.add(carte);
-            //tvRezultat.setText(carte.toString()); aceasta era inainte de array list
-            Toast.makeText(this, "Carte adaugata: " + carte.getTitlu(), Toast.LENGTH_SHORT).show();
-        }
+        if(resultCode == RESULT_OK && data != null) {
+            if(requestCode == REQ_ADAUGA) {
+                /*Bundle b = data.getExtras();
+                Carte carte = new Carte(
+                        b.getString("titlu"),
+                        b.getString("autor"),
+                        b.getInt("an", 0),
+                        b.getFloat("pret", 0f),
+                        b.getBoolean("disponibila", false)
+                );*/
+                Carte carte = data.getParcelableExtra("carte");
+                listaCarti.add(carte);
+                //tvRezultat.setText(carte.toString()); aceasta era inainte de array list
+                Toast.makeText(this, "Carte adaugata: " + carte.getTitlu(), Toast.LENGTH_SHORT).show();
+            }
 
-        if(requestCode == REQ_LISTA) {
-            listaCarti = (ArrayList<Carte>) data.getSerializableExtra("lista");
+            if(requestCode == REQ_LISTA) {
+                //listaCarti = (ArrayList<Carte>) data.getSerializableExtra("lista");
+                listaCarti = data.getParcelableArrayListExtra("lista");
+            }
         }
-
         tvRezultat.setText("Numar de carti in lista: " + listaCarti.size());
     }
 
     public void deschideLista(View view) {
         Intent intent = new Intent(getApplicationContext(), ListaCarti.class);
-        intent.putExtra("lista",listaCarti);
+        //intent.putExtra("lista",listaCarti);
+        intent.putParcelableArrayListExtra("lista", listaCarti); //parcelable
         startActivityForResult(intent, REQ_LISTA);
     }
 }

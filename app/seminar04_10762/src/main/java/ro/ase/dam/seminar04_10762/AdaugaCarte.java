@@ -25,6 +25,28 @@ public class AdaugaCarte extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent it=getIntent();
+        if(it.hasExtra("carte")){
+            Carte carte = it.getParcelableExtra("carte");
+            EditText titluET = findViewById(R.id.ET_titlu);
+            EditText autorET = findViewById(R.id.ET_autor);
+            Spinner anSP = findViewById(R.id.SP_an);
+            EditText pretET = findViewById(R.id.ET_pret);
+            CheckBox disponibilaCB = findViewById(R.id.CB_disponibila);
+
+            titluET.setText(carte.getTitlu());
+            autorET.setText(carte.getAutor());
+            pretET.setText(String.valueOf(carte.getPret()));
+            disponibilaCB.setChecked(carte.isEsteDisponibila());
+
+            String[] ani = getResources().getStringArray(R.array.lista_ani);
+            for(int i=0;i<ani.length;i++) {
+                if(ani[i].equals(String.valueOf(carte.getAnAparitie()))) {
+                    anSP.setSelection(i);
+                }
+            }
+        }
     }
 
     public void preluareDate(View view) {
@@ -42,15 +64,17 @@ public class AdaugaCarte extends AppCompatActivity {
 
         Carte carte = new Carte(titlu, autor, an, pret, disponibila);
 
-        Bundle bundle = new Bundle();
+        //seminar 5 - cu serializable, nu parcelable
+        /*Bundle bundle = new Bundle();
         bundle.putString("titlu", carte.getTitlu());
         bundle.putString("autor", carte.getAutor());
         bundle.putInt("an", carte.getAnAparitie());
         bundle.putFloat("pret", carte.getPret());
-        bundle.putBoolean("disponibila", carte.isEsteDisponibila());
+        bundle.putBoolean("disponibila", carte.isEsteDisponibila()); */
 
         Intent it = new Intent();
-        it.putExtras(bundle);
+        //it.putExtras(bundle);
+        it.putExtra("carte",carte); // parcelable
         setResult(RESULT_OK, it);
         finish();
 
