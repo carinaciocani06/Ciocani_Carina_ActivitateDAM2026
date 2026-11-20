@@ -41,7 +41,7 @@ public class CarteAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(ctx);
         View v = inflater.inflate(resursaLayout, parent, false);
 
-        ImageView pozaIV = v.findViewById(R.id.IV_poza);
+        //ImageView pozaIV = v.findViewById(R.id.IV_poza);
         TextView titluTV = v.findViewById(R.id.TV_titlu);
         TextView autorTV = v.findViewById(R.id.TV_autor);
         TextView detaliiTV = v.findViewById(R.id.TV_detalii);
@@ -53,13 +53,13 @@ public class CarteAdapter extends BaseAdapter {
         autorTV.setText(carte.getAutor());
         detaliiTV.setText("An aparitie: " + carte.getAnAparitie() + " , Pret: " + carte.getPret());
 
-        if (carte.isEsteDisponibila()) {
-            disponibilaTV.setText("Disponibila");
-            pozaIV.setImageResource(R.drawable.carte_disponibila);
-        } else {
-            disponibilaTV.setText("Indisponibila");
-            pozaIV.setImageResource(R.drawable.carte_indisponibila);
-        }
+//        if (carte.isEsteDisponibila()) {
+//            disponibilaTV.setText("Disponibila");
+//            pozaIV.setImageResource(R.drawable.carte_disponibila);
+//        } else {
+//            disponibilaTV.setText("Indisponibila");
+//            pozaIV.setImageResource(R.drawable.carte_indisponibila);
+//        }
 
         return v;
     }

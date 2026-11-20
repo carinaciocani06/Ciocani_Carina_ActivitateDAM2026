@@ -72,4 +72,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putParcelableArrayListExtra("lista", listaCarti); //parcelable
         startActivityForResult(intent, REQ_LISTA);
     }
+
+    public void deschideImagini(View view) {
+        Intent intent = new Intent(getApplicationContext(), ImaginiCartiActivity.class);
+        startActivity(intent);
+    }
 }
