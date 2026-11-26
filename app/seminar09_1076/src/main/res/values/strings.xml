@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">seminar09_1076</string>
+    <string name="deschide_activitate">Deschide Activitate</string>
+    <string name="completeaza_oras">Completeaza oras</string>
+    <string name="afla_vremea">Afla vremea</string>
+    <string name="cauta_orasul">Cauta orasul</string>
+
+    <string-array name="lista_zile">
+        <item>1 zi</item>
+        <item>5 zile</item>
+    </string-array>
+</resources>
